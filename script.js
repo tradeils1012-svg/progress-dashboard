@@ -6,6 +6,8 @@ const targetDateInput = document.getElementById("targetDateInput");
 const calculateBtn = document.getElementById("calculateBtn");
 const progressBar = document.getElementById("progressBar");
 const percentText = document.getElementById("percentText");
+const deadlineStatusBadge =
+  document.getElementById("deadlineStatusBadge");
 const resultText = document.getElementById("resultText");
 
 const skillGoalInput = document.getElementById("skillGoalInput");
@@ -91,15 +93,42 @@ function calculateProgress() {
       if (monthly <= 0) {
         deadlineStatus =
           " Укажи текущий ежемесячный вклад, чтобы сравнить его с необходимым темпом.";
+
+        deadlineStatusBadge.textContent =
+          "Укажи ежемесячный вклад";
+
+        deadlineStatusBadge.className =
+          "status-badge status-neutral";
+
       } else if (monthlyDifference > 0) {
         deadlineStatus =
           ` Ты идёшь быстрее необходимого темпа на $${formatMoney(monthlyDifference)} в месяц.`;
+
+        deadlineStatusBadge.textContent =
+          "Опережаешь план";
+
+        deadlineStatusBadge.className =
+          "status-badge status-success";
+
       } else if (monthlyDifference === 0) {
         deadlineStatus =
           " Текущий ежемесячный вклад точно соответствует необходимому темпу.";
+
+        deadlineStatusBadge.textContent =
+          "Идёшь точно по плану";
+
+        deadlineStatusBadge.className =
+          "status-badge status-warning";
+
       } else {
         deadlineStatus =
           ` Чтобы не отставать от плана, увеличь ежемесячный вклад примерно на $${formatMoney(Math.abs(monthlyDifference))}.`;
+
+        deadlineStatusBadge.textContent =
+          "Отстаёшь от плана";
+
+        deadlineStatusBadge.className =
+          "status-badge status-danger";
       }
 
       message +=
