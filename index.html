@@ -2,78 +2,179 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A simple dashboard for tracking financial goals and learning progress." />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="A simple dashboard for tracking financial goals and learning progress."
+  />
+
   <title>Progress Dashboard — Money & Skills Tracker</title>
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <main class="app">
     <section class="card">
+
+      <!-- Верхняя часть приложения -->
       <p class="eyebrow">PROGRESS DASHBOARD</p>
+
       <h1>Трекер целей для денег и навыков</h1>
+
       <p class="subtitle">
-         Контролируй финансовые цели, темп накопления и прогресс обучения в одной простой системе.
+        Контролируй финансовые цели, темп накопления
+        и прогресс обучения в одной простой системе.
       </p>
 
-      <h3 class="section-title">Финансовый прогресс</h3>
+
+      <!-- Финансовый блок -->
+      <h3 class="section-title">
+        Финансовый прогресс
+      </h3>
 
       <div class="form">
+
         <label>
           Финансовая цель, $
-          <input id="goalInput" type="number" placeholder="1000000" />
+          <input
+            id="goalInput"
+            type="number"
+            placeholder="1000000"
+            min="0"
+          />
         </label>
 
         <label>
           Текущая сумма, $
-          <input id="currentInput" type="number" placeholder="500" />
+          <input
+            id="currentInput"
+            type="number"
+            placeholder="500"
+            min="0"
+          />
         </label>
 
         <label>
           Ежемесячный вклад, $
-          <input id="monthlyInput" type="number" placeholder="1000" />
+          <input
+            id="monthlyInput"
+            type="number"
+            placeholder="1000"
+            min="0"
+          />
         </label>
 
-        <button id="calculateBtn">Рассчитать финансовый прогресс</button>
+        <label>
+          Достичь цели до
+          <input
+            id="targetDateInput"
+            type="date"
+          />
+        </label>
+
+        <button id="calculateBtn">
+          Рассчитать финансовый прогресс
+        </button>
+
       </div>
 
-<div class="form second-form">
 
-  <h3 class="section-title">Прогресс обучения</h3>
-
-  <label>
-    Цель обучения, часов
-    <input id="skillGoalInput" type="number" placeholder="100" />
-  </label>
-
-  <label>
-    Пройдено, часов
-    <input id="skillCurrentInput" type="number" placeholder="7" />
-  </label>
-
-  <button id="skillCalculateBtn">Рассчитать прогресс обучения</button>
-</div>
-
-<div class="result">
-  <div class="progress-wrap">
-    <div id="skillProgressBar" class="progress-bar"></div>
-  </div>
-
-  <h2 id="skillPercentText">0%</h2>
-  <p id="skillResultText">Заполни IT-цель и нажми кнопку.</p>
-</div>
-
+      <!-- Результат финансового прогресса -->
       <div class="result">
+
         <div class="progress-wrap">
-          <div id="progressBar" class="progress-bar"></div>
+          <div
+            id="progressBar"
+            class="progress-bar"
+          ></div>
         </div>
 
-        <h2 id="percentText">0%</h2>
-        <p id="resultText">Заполни поля и нажми кнопку.</p>
+        <h2 id="percentText">
+          0%
+        </h2>
+
+        <p id="resultText">
+          Заполни поля для расчёта финансового прогресса.
+        </p>
+
       </div>
 
-      <button id="resetBtn" class="reset-btn">Сбросить данные</button>
-  <p class="version">Progress Dashboard v1.0</p>
+
+      <!-- Блок обучения -->
+      <h3 class="section-title">
+        Прогресс обучения
+      </h3>
+
+      <div class="form second-form">
+
+        <label>
+          Цель обучения, часов
+          <input
+            id="skillGoalInput"
+            type="number"
+            placeholder="100"
+            min="0"
+          />
+        </label>
+
+        <label>
+          Пройдено, часов
+          <input
+            id="skillCurrentInput"
+            type="number"
+            placeholder="7"
+            min="0"
+          />
+        </label>
+
+        <button id="skillCalculateBtn">
+          Рассчитать прогресс обучения
+        </button>
+
+      </div>
+
+
+      <!-- Результат обучения -->
+      <div class="result">
+
+        <div class="progress-wrap">
+          <div
+            id="skillProgressBar"
+            class="progress-bar"
+          ></div>
+        </div>
+
+        <h2 id="skillPercentText">
+          0%
+        </h2>
+
+        <p id="skillResultText">
+          Заполни цель обучения и текущее количество часов.
+        </p>
+
+      </div>
+
+
+      <!-- Сброс -->
+      <button
+        id="resetBtn"
+        class="reset-btn"
+      >
+        Сбросить данные
+      </button>
+
+
+      <!-- Версия -->
+      <p class="version">
+        Progress Dashboard v1.2
+      </p>
+
     </section>
   </main>
 
