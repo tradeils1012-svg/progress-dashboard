@@ -84,9 +84,30 @@ function calculateProgress() {
         left / monthsLeft
       );
 
+      const monthlyDifference = monthly - requiredMonthly;
+
+      let deadlineStatus = "";
+
+      if (monthly <= 0) {
+        deadlineStatus =
+          " Укажи текущий ежемесячный вклад, чтобы сравнить его с необходимым темпом.";
+      } else if (monthlyDifference > 0) {
+        deadlineStatus =
+          ` Ты идёшь быстрее необходимого темпа на $${formatMoney(monthlyDifference)} в месяц.`;
+      } else if (monthlyDifference === 0) {
+        deadlineStatus =
+          " Текущий ежемесячный вклад точно соответствует необходимому темпу.";
+      } else {
+        deadlineStatus =
+          ` Чтобы не отставать от плана, увеличь ежемесячный вклад примерно на $${formatMoney(Math.abs(monthlyDifference))}.`;
+      }
+
       message +=
         ` Чтобы успеть к выбранной дате, нужно откладывать примерно ` +
         `$${formatMoney(requiredMonthly)} в месяц.`;
+
+      message += deadlineStatus;
+
     } else {
       message +=
         " Выберите будущую дату достижения цели.";
