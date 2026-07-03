@@ -1,5 +1,7 @@
 # Progress Dashboard
+## Live Demo
 
+https://tradeils1012-svg.github.io/progress-dashboard/
 Мини-приложение для отслеживания финансовых целей и прогресса обучения.
 
 ## Возможности
